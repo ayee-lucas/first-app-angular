@@ -1,0 +1,31 @@
+<form
+  class="flex flex-col justify-between h-full py-10"
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="flex flex-col gap-6">
+    <label class="text-sm">Username</label>
+    <input
+      class="bg-zinc-900 rounded-lg border border-zinc-700 text-zinc-300 px-2 py-3 text-sm outline-none outline focus:outline-green-700"
+      id="username"
+      type="text"
+      formControlName="username"
+    />
+
+    <label class="text-sm">Password</label>
+    <input
+      class="bg-zinc-900 rounded-lg border border-zinc-700 text-zinc-300 px-2 py-3 text-sm outline-none outline focus:outline-green-700"
+      id="password"
+      type="password"
+      formControlName="password"
+    />
+  </div>
+
+  <button
+    class="w-full transition-all py-3 text-sm font-montserrat bg-green-800 rounded-lg disabled:bg-zinc-700 hover:disabled:bg-red-950"
+    type="submit"
+    [disabled]="!loginForm.valid"
+  >
+    Login
+  </button>
+</form>
