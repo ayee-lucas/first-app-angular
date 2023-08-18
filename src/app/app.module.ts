@@ -9,11 +9,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SigninComponent } from './signin/signin.component';
+import {ROUTE_NAMES, ROUTE_PATHS} from 'src/config';
+import {  CookieService  } from "ngx-cookie-service";
 
 const routes: Routes = [
-  { path: 'signin', component: SigninComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: '', redirectTo: '/signin', pathMatch: 'full' },
+  { path: ROUTE_NAMES.SingIn, component: SigninComponent },
+  { path: ROUTE_NAMES.Dashboard, component: DashboardComponent },
+  { path: '', redirectTo: ROUTE_PATHS.SingIn, pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -32,7 +34,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
