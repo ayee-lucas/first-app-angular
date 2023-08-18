@@ -4,7 +4,8 @@
   (ngSubmit)="onSubmit()"
 >
   <div class="flex flex-col gap-6">
-    <label class="text-sm">Username</label>
+
+    <label class="text-sm" [ngClass]="{'text-red-500': errorMsg}" >Username</label>
     <input
       class="bg-zinc-900 rounded-lg border border-zinc-700 text-zinc-300 px-2 py-3 text-sm outline-none outline focus:outline-green-700"
       id="username"
@@ -12,13 +13,17 @@
       formControlName="username"
     />
 
-    <label class="text-sm">Password</label>
+    <label class="text-sm" [ngClass]="{'text-red-500': errorMsg}" >Password</label>
     <input
       class="bg-zinc-900 rounded-lg border border-zinc-700 text-zinc-300 px-2 py-3 text-sm outline-none outline focus:outline-green-700"
       id="password"
       type="password"
       formControlName="password"
     />
+  </div>
+
+  <div *ngIf="errorMsg" class="text-red-500 text-sm font-montserrat">
+    {{errorMsg}}
   </div>
 
   <button
@@ -28,4 +33,7 @@
   >
     Login
   </button>
+
 </form>
+
+
